@@ -10,7 +10,16 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+cd /tmp
+git clone https://github.com/Micro856/NetC.git
+mkdir -p /usr/share/bootcrew/netc
+cp /tmp/NetC/main.py /usr/share/bootcrew/netc/main.py
+cp /tmp/NetC/netc /bin/netc
+cp /tmp/NetC/bashrc /etc/skel/.bashrc
+cp /tmp/NetC/bash_profile /etc/skel/.bash_profile
+cd /
+rm -rf /tmp/NetC
+cp /ctx/os-release /etc/os-release
 
 # Use a COPR Example:
 #
