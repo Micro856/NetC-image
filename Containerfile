@@ -22,7 +22,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip && \
+    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui && \
     /ctx/build.sh && \
     dnf remove -y git *perl* *perl-* && \
     dnf5 clean all && \
