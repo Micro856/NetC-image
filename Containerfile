@@ -22,6 +22,16 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
+    dnf install -y git && \
+    cd /tmp
+    git clone https://github.com/Micro856/NetC.git && \
+    mkdir -p /usr/share/bootcrew/netc && \
+    cp /tmp/NetC/main.py /usr/share/bootcrew/netc/main.py && \
+    cp /tmp/NetC/netc /bin/netc && \
+    cp /tmp/NetC/bashrc /etc/skel/.bashrc && \
+    cp /tmp/NetC/bash_profile /etc/skel/.bash_profile && \
+    cd /
+    rm -rf /tmp/NetC
     /ctx/build.sh && \
     ostree container commit
     
