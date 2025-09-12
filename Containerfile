@@ -30,9 +30,9 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     cp /tmp/NetC/netc /bin/netc && \
     cp /tmp/NetC/bashrc /etc/skel/.bashrc && \
     cp /tmp/NetC/bash_profile /etc/skel/.bash_profile && \
-    cd /
+    cd / && \
     rm -rf /tmp/NetC && \
-    cp /ctx/os-release /etc/os-release
+    cp /ctx/os-release /etc/os-release && \
     /ctx/build.sh && \
     ostree container commit
     
