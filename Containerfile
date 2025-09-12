@@ -24,6 +24,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     dnf install -y --setopt=install_weak_deps=False git python3 python3-pip && \
     /ctx/build.sh && \
+    dnf5 clean all && \
+    rm -rf /tmp/* || true && \
     ostree container commit
     
 ### LINTING
