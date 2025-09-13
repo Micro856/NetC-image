@@ -22,6 +22,7 @@ rm -rf /tmp/NetC
 cp /ctx/os-release /etc/os-release
 cp /ctx/storage.conf /etc/containers/storage.conf
 chmod +x /bin/netc
+dmesg -n 1
 
 # Use a COPR Example:
 #
