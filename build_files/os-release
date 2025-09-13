@@ -1,8 +1,8 @@
 NAME="Networkable Containers"
-VERSION=""
+VERSION="42"
 ID=fedora
 VERSION_ID=42
-VERSION_CODENAME=""
+VERSION_CODENAME="(NetC based on Fedora 42)"
 PLATFORM_ID="platform:f42"
 PRETTY_NAME="Networkable Containers"
 ANSI_COLOR="0;38;2;60;110;180"
