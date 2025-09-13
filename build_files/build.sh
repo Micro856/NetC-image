@@ -15,11 +15,12 @@ git clone https://github.com/Micro856/NetC.git
 mkdir -p /usr/share/bootcrew/netc
 cp /tmp/NetC/main.py /usr/share/bootcrew/netc/main.py
 cp /tmp/NetC/netc /bin/netc
-cp /tmp/NetC/bashrc /etc/skel/.bashrc
-cp /tmp/NetC/bash_profile /etc/skel/.bash_profile
+cp /tmp/NetC/bashrc /root/.bashrc
+cp /tmp/NetC/bash_profile /root/.bash_profile
 cd /
 rm -rf /tmp/NetC
 cp /ctx/os-release /etc/os-release
+cp /ctx/storage.conf /etc/containers/storage.conf
 
 # Use a COPR Example:
 #
