@@ -22,8 +22,8 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch && \
     dnf remove -y bootc && \
+    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch make && \
     git clone https://github.com/bootc-dev/bootc.git /tmp/bootc && \
     cd /tmp/bootc && \
     CARGO_FEATURES="composefs-backend" make bin && \
