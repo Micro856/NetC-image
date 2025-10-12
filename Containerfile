@@ -23,13 +23,14 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch && \
-    pip install -q simple-term-menu && \
-    /ctx/build.sh && \
+    dnf remove -y bootc && \
     git clone https://github.com/bootc-dev/bootc.git /tmp/bootc && \
     cd /tmp/bootc && \
     CARGO_FEATURES="composefs-backend" make bin && \
     make install-all && \
     make install-initramfs-dracut && \
+    pip install -q simple-term-menu && \
+    /ctx/build.sh && \
     dnf remove -y git *perl* *perl-* && \
     dnf5 clean all && \
     rm -rf /tmp/* || true && \
