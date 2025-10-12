@@ -24,7 +24,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     dnf config-manager setopt updates-testing.enabled=true && \
     dnf update && \
-    dnf upgrade && \
+    dnf upgrade -y && \
     dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch make && \
     pip install -q simple-term-menu && \
     /ctx/build.sh && \
