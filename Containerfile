@@ -22,13 +22,10 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
-    dnf remove -y --noautoremove bootc && \
-    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch make rpm-ostree && \
-    git clone https://github.com/bootc-dev/bootc.git /tmp/bootc && \
-    cd /tmp/bootc && \
-    CARGO_FEATURES="composefs-backend" make bin && \
-    make install-all && \
-    make install-initramfs-dracut && \
+    dnf config-manager setopt updates-testing.enabled=true && \
+    dnf update && \
+    dnf upgrade && \
+    dnf install -y --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch make && \
     pip install -q simple-term-menu && \
     /ctx/build.sh && \
     dnf remove -y git *perl* *perl-* && \
