@@ -11,7 +11,7 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 cd /tmp
-git clone https://github.com/Micro856/NetC.git
+git clone https://github.com/Micro856/NetC-py.git
 mkdir -p /usr/share/bootcrew/netc
 cp /tmp/NetC/main.py /usr/share/bootcrew/netc/main.py
 cp /tmp/NetC/netc /bin/netc
