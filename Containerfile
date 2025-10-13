@@ -25,7 +25,7 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     dnf config-manager setopt updates-testing.enabled=true && \
     dnf update && \
     dnf install -y --enablerepo=updates-testing --setopt=install_weak_deps=False git python3 python3-pip nmtui fastfetch make && \
-    dnf install -y --enablerepo=updates-testing bootc && \
+    dnf install -y --enablerepo=updates-testing bootc-1.9.0-1.fc42 && \
     pip install -q simple-term-menu && \
     /ctx/build.sh && \
     dnf remove -y git *perl* *perl-* && \
