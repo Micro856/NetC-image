@@ -145,7 +145,13 @@ jobs:
     steps:
       - name: Install dependencies
         run: apk add bash coreutils curl docker findutils fuse-overlayfs git grep jq podman sed
-
+      
+      - name: Prepare environment
+        run: |
+          # Lowercase the image uri
+          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
+          echo "IMAGE_NAME=${IMAGE_NAME,,}" >> ${GITHUB_ENV}
+          
       - name: Install Cosign
         uses: sigstore/cosign-installer@v4.0.0
         if: github.event_name != 'pull_request'
