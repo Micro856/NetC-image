@@ -17,8 +17,8 @@ env:
   IMAGE_DESC: "Minimal image to install bootc distros from"
   IMAGE_KEYWORDS: "bootc"
   IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/121560464?s=400&v=4"
-  IMAGE_NAME: "netc-image"
-  IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
+  IMAGE_NAME: "netc-image" # change to your image repo name in lowercase
+  IMAGE_REGISTRY: "ghcr.io/micro856" # change to your username in lowercase
   DEFAULT_TAG: "latest"
 
 jobs:
